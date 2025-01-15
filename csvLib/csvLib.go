@@ -64,7 +64,7 @@ func Table2Md(tbl Table) ([]byte, error) {
 	nam:=fmt.Sprintf("Table %d: %s  \n", tbl.Count+1, tbl.Name)
 	copy(md[ipos:ipos+len(nam)+1], []byte(nam))
 	ipos += len(nam)
-	return md, nil
+	return md[:ipos], nil
 }
 
 

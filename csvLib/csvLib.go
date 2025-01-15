@@ -38,9 +38,9 @@ func Table2Md(tbl Table) ([]byte, error) {
 	copy(md[ipos:len(colStr)+1], []byte(colStr))
 	ipos += len(colStr)
 
-	fmtStr:="+"
+	fmtStr:="|"
 	for i:=0; i< numCol-1; i++ {
-		fmtStr=fmtStr + "---+"
+		fmtStr=fmtStr + "---|"
 	}
 	fmtStr +="\n"
 //	fmt.Printf("dbg -- fmtStr[%d]->%s",len(fmtStr),fmtStr)
@@ -61,7 +61,7 @@ func Table2Md(tbl Table) ([]byte, error) {
 	}
 
 	//print name
-	nam:=fmt.Sprintf("Table %d: %s  \n", tbl.Count+1, tbl.Name)
+	nam:=fmt.Sprintf("\nTable %d: %s  \n", tbl.Count+1, tbl.Name)
 	copy(md[ipos:ipos+len(nam)+1], []byte(nam))
 	ipos += len(nam)
 	return md[:ipos], nil
